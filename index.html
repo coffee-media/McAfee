@@ -1,0 +1,200 @@
+<head>
+    <meta charset="UTF-8">
+    <title>McAfee – Website Safety Ratings and Secure Search</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0">
+     <style type="text/css" media="screen">
+        @import url("/includes/stylesheets/default.css");
+    </style>
+     <script async="" src="//www.google-analytics.com/analytics.js"></script><script>
+     //alert(window.innerWidth)
+     </script>
+</head>
+<body id="sitereport" waid71fa0d88-5390-4b5b-a2f4-e45fa93d85e2="SA password protect entry checker">
+    <div id="sitereportcontainer">
+        <div id="logoimage">
+            <img src="/images/Mshield_55x58.png" title="">
+            <h1 id="wa_heading">McAfee WebAdvisor</h1>
+        </div>
+        <div id="warningtxt">
+            <img src="/images/exclamation_mark_10x35.png" title="">
+            <h2>Warning: Trouble ahead</h2>
+        </div>
+        <div id="maincontent">
+            <h3>Whoa!</h3>
+            <p id="blockedtxt">Are you sure you want to go there?</p>
+            <p><span id="domain_text2">https://www.davidesperalta.com/</span> may be risky to visit.</p>
+            <p>&nbsp;</p>
+            <p id="redirecttext">Why are you seeing this?</p>
+            <p class="error_list">When we visited this site, we found it exhibited one or more risky behaviors.</p>
+
+            <div id="buttons">
+
+                <div id="trustthissite"><a href="javascript:acceptrisk()" id="DontWarn">Accept the Risk</a></div>
+                <div id="GoAnyways" style="visibility:hidden"><a href="">Go Anyways</a></div>
+                <div id="goback"><a id="gobackbtn" href="javascript:history.go(-2);">Back</a>
+                 <script type="text/javascript">
+                                <!--
+                                var ua = navigator.userAgent.toLowerCase();
+                                var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+                                var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+                                var is_internetexplorer = false;
+                                if(navigator.userAgent.toLowerCase().indexOf('msie') > -1 || navigator.userAgent.toLowerCase().indexOf('trident') > -1)
+                                {
+                                    is_internetexplorer = true;
+                                }
+				                var is_safari = navigator.userAgent.toLowerCase().indexOf('safari') > -1;
+								
+                                var gobackhref = "about:blank";
+                                if (is_internetexplorer && history.length > 1) {
+                                    if(ua.indexOf("msie 8") > -1)
+                                    {
+                                        gobackhref = "javascript:history.go(-1);"
+                                    }else{
+                                        gobackhref = "javascript:history.go(-2);"
+                                    }
+                                } else if ((is_firefox || is_chrome || is_safari) && history.length > 2) {
+                                    gobackhref = "javascript:history.go(-2);"
+                                } else {
+                                   gobackhref = "about:blank";
+                                }
+                                document.getElementById("gobackbtn").href = gobackhref;
+                                //-->
+                            </script>
+                </div>
+            </div>
+            <div id="viwesitereport">
+			<a id="sitereport-link" href="https://www.mcafee.com/threat-intelligence/site/default.aspx?url=https://www.davidesperalta.com/" target="_blank">View Site Report</a>
+            </div>
+            <div id="extPageIntroText">
+        </div>
+        <div id="blockOverride" class="clearfix">
+        </div>
+        </div>
+    </div>
+
+
+
+<script type="text/javascript">
+            var didx = document.location.href.indexOf("domain=");
+            if (didx != -1) {
+                var estr = document.location.href.substring(didx+7,document.location.href.length);
+                var eidx = estr.indexOf("&");
+                if (eidx == -1) eidx = estr.length;
+                var site = estr.substring(0,eidx);
+  
+                site = site.replace(/^(ht|f)tp(s)?:\/\//,'')
+                site = site.replace(/\&/g,'&amp;')
+                site = site.replace(/[^0-9a-zA-Z\_\-\/\.\~\%\?\:\;\&\=\+]/g,'')
+                site = site.replace(/\/*$/,'');
+                site = "https://www.davidesperalta.com/"
+                site = unescape(site)
+
+                if (site == undefined || site == ""){
+                } else {
+                    var l = site.length;
+                    var siteCut = site;
+
+                    if (l > 50) {
+                        siteCut = siteCut.substring(0, 50);
+                        siteCut = siteCut + '...';
+                    }
+
+                    if (document.getElementById("domain_text2")) {
+                        document.getElementById("domain_text2").innerHTML = siteCut;
+                    }
+                    if (document.getElementById("domain_text2y")) {
+                        document.getElementById("domain_text2y").innerHTML = siteCut;
+                    }
+
+                    var wlb = document.getElementById("DontWarn")
+                    if (wlb.href == "http://www.siteadvisor.com/whitelistfailed.html") {
+                        wlb.href += "?domain=" + site;
+                    }
+                }
+            }		
+</script>
+<script type="text/javascript" src="/script/telemetry.js?version=2"></script>
+<script type="text/javascript">     
+	var ENTERKEY = 13;
+	
+    var riskyUrlEl = document.getElementById("risky-url"),
+        query = _sa.Url.parseQuery(window.location.search.substring(1)),
+        telemetry = _sa.telemetry({
+                        action: "Block",
+                        throttle: true,
+                        dimensions: {
+                            "client_ver": query["client_ver"],
+                            "aff_id": query["aff_id"],
+                            "suite": query["suite"],
+                            "domain": query["domain"],
+                            "subframe": query["subframe"],
+                            "experience": "4"
+                        }
+                    }).sendPageView();
+
+    if (riskyUrlEl) {
+        var text = _sa.getText(riskyUrlEl);
+        if (text) {
+            _sa.setText(riskyUrlEl, _sa.truncate(text, 50));
+        }
+    }
+	
+	_sa.addEventListener("search-bar", "keypress",function (ev,e) {
+        if (e.keyCode === ENTERKEY) {
+            searchClick();
+		}
+    });
+
+	_sa.addEventListener("sitereport-link", "click", function () {
+		telemetry.sendEvent({ label: "ViewSiteReportClick" , sendToGA: true});
+    });
+
+    _sa.addEventListener("DontWarn", "click", function () {
+		telemetry.sendEvent({ label: "AcceptRiskClick" , sendToGA: true});
+    });
+    
+    _sa.addEventListener("gobackbtn", "click", function () {
+		telemetry.sendEvent({ label: "GoBackClick", sendToGA: true});
+    });
+
+    _sa.addEventListener("search-button", "click", function () {
+        searchClick();
+    });
+	
+    _sa.addEventListener("toggleinfo-button", "click", function (ev) {
+        var state = ev.className,
+            description = document.getElementById("info-description");
+
+        if (state === "collapsed") {
+            ev.className = "expanded";
+            description.style.display = "block";
+        } else {
+            ev.className = "collapsed";
+            description.style.display = "none";
+        }
+    });
+
+    _sa.addEventListener("live-safe-link", "click", function () {
+        telemetry.sendEvent({ label: "GoToMLSPageClick", sendToGA: true});
+    });
+
+    function searchClick(){
+        if(document.getElementById("search-bar").value != ""){
+            telemetry.sendEvent({ label: "SearchClick", sendToGA: true}, function () {
+                var searchBarEl = document.getElementById("search-bar"),
+                    url = searchBarEl.getAttribute("data-redirect") || "https://search.yahoo.com/search?fr=mcafee&type=C040US0D19700101&p=";
+
+                    if (searchBarEl) {
+                        var searchTerm = searchBarEl.value;
+                        
+                        if (searchTerm) {
+                            url += encodeURIComponent(searchTerm);
+                            _sa.redirect(url);
+                        }
+                    }
+                });
+            }
+        }
+</script></body>
